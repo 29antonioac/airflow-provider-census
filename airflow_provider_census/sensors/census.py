@@ -48,6 +48,7 @@ class CensusSensor(BaseSensorOperator):
             return None
 
         self.defer(
+            timeout=timedelta(seconds=self.timeout),
             trigger=CensusTrigger(
                 sync_run_id=self.sync_run_id,
                 census_conn_id=self.census_conn_id,
